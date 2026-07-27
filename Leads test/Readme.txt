@@ -47,7 +47,7 @@ firmenabc
 Check code for more Details, may not be 100% since i didn't hand-code it, just architectured it without Looking too close.
 
 Used Tools: Cursor and Claude
-Used Programs: Python
+Used Programs: Python with playwright, requests and beautifulsoup4
 
 Additionally i built a quick html Website with Claude, incl. working web3 email form (sends me a real email) and an additional Impressum site. 
 
