@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz Dunkelhain — Datenschutzberatung für Unternehmen</title>
+<meta name="description" content="Datenschutz Firma Dunkelhain berät Unternehmen in Tirol und ganz Österreich zu DSGVO, Datenschutzkonzepten und Datenschutz-Folgenabschätzungen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --paper: #F4F2ED;
+    --paper-deep: #EAE6DC;
+    --ink: #1E2521;
+    --ink-soft: #4B564F;
+    --seal: #2F4A40;
+    --seal-deep: #1D302A;
+    --gold: #9C7C3D;
+    --gold-soft: #C9AE78;
+    --line: rgba(30, 37, 33, 0.14);
+    --radius: 2px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  .mono{
+    font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Header ---------- */
+
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(244, 242, 237, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .brand .mark{
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+
+  .navlinks{
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navlinks a{
+    text-decoration: none;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .navlinks a:hover, .navlinks a:focus-visible{ color: var(--seal); }
+
+  .navlinks a::after{
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  .navlinks a:hover::after{ transform: scaleX(1); }
+
+  .navlinks-mobile{ display:none; }
+
+  @media (max-width: 720px){
+    .navlinks{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    padding: 96px 0 88px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero{ padding: 64px 0 56px; }
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before{
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1{
+    font-size: clamp(2.3rem, 4.2vw, 3.4rem);
+    line-height: 1.08;
+    color: var(--ink);
+  }
+
+  .hero h1 em{
+    font-style: normal;
+    color: var(--seal);
+  }
+
+  .hero p.lede{
+    margin-top: 26px;
+    max-width: 46ch;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+
+  .hero-actions{
+    margin-top: 38px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 0.94rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  }
+
+  .btn-primary{
+    background: var(--seal);
+    color: var(--paper);
+  }
+
+  .btn-primary:hover{ background: var(--seal-deep); }
+
+  .btn-ghost{
+    border-color: var(--line);
+    color: var(--ink);
+    background: transparent;
+  }
+
+  .btn-ghost:hover{ border-color: var(--seal); }
+
+  .btn:focus-visible{ outline: 2px solid var(--seal); outline-offset: 3px; }
+
+  /* signature seal element */
+
+  .seal-figure{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .seal-figure svg{
+    width: min(100%, 340px);
+    height: auto;
+  }
+
+  .seal-ring{
+    animation: rotate 60s linear infinite;
+    transform-origin: 170px 170px;
+  }
+
+  @keyframes rotate{
+    from{ transform: rotate(0deg); }
+    to{ transform: rotate(360deg); }
+  }
+
+  /* ---------- Trust strip ---------- */
+
+  .trust{
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-deep);
+  }
+
+  .trust-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 22px 0;
+    justify-content: space-between;
+  }
+
+  .trust-item{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .trust-item .num{
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--seal);
+  }
+
+  /* ---------- Sections ---------- */
+
+  section{ padding: 96px 0; }
+
+  .section-head{
+    max-width: 62ch;
+    margin-bottom: 56px;
+  }
+
+  .section-head .eyebrow{ margin-bottom: 14px; }
+
+  .section-head h2{
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+  }
+
+  .section-head p{
+    margin-top: 16px;
+    color: var(--ink-soft);
+  }
+
+  /* Services — numbered as a real sequence: how an engagement actually proceeds */
+
+  .services{
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .service{
+    display: grid;
+    grid-template-columns: 90px 1fr 1.3fr;
+    gap: 28px;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+
+  @media (max-width: 780px){
+    .service{ grid-template-columns: 50px 1fr; }
+    .service .service-desc{ grid-column: 1 / -1; padding-left: 78px; }
+  }
+
+  .service .step{
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--gold);
+    font-size: 0.85rem;
+    padding-top: 4px;
+  }
+
+  .service h3{
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+
+  .service-desc p{
+    margin: 8px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  /* Approach / quote block */
+
+  .statement{
+    background: var(--seal);
+    color: var(--paper);
+  }
+
+  .statement blockquote{
+    margin: 0;
+    max-width: 52ch;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .statement cite{
+    display: block;
+    margin-top: 24px;
+    font-style: normal;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--gold-soft);
+  }
+
+  /* Contact */
+
+  .contact-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  @media (max-width: 780px){
+    .contact-grid{ grid-template-columns: 1fr; }
+  }
+
+  .contact-card{
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    padding: 32px;
+    border-radius: var(--radius);
+  }
+
+  .contact-card dl{
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 20px;
+    font-size: 0.96rem;
+  }
+
+  .contact-card dt{
+    color: var(--ink-soft);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-top: 2px;
+  }
+
+  .contact-card dd{ margin: 0; }
+
+  form{ display: flex; flex-direction: column; gap: 16px; }
+
+  label{
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  input, textarea{
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.98rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  input:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--seal);
+    outline-offset: 1px;
+  }
+
+  textarea{ resize: vertical; min-height: 110px; }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 48px 0 40px;
+    background: var(--paper-deep);
+  }
+
+  .footer-row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .footer-links{
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links a{ text-decoration: none; color: var(--ink-soft); }
+  .footer-links a:hover{ color: var(--seal); }
+
+  /* ---------- Impressum page ---------- */
+
+  #impressum{
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 84px;
+  }
+
+  .impressum-head{
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .impressum-head .mono{
+    color: var(--gold);
+    font-size: 0.85rem;
+  }
+
+  .imp-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 56px;
+  }
+
+  @media (max-width: 780px){
+    .imp-grid{ grid-template-columns: 1fr; }
+  }
+
+  .imp-block h3{
+    font-size: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--seal);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .imp-block p{
+    margin: 0 0 6px;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+  }
+
+  .imp-block p strong{ color: var(--ink); font-weight: 500; }
+
+  .back-to-top{
+    display: inline-block;
+    margin-top: 48px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--seal);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18.5" stroke="#2F4A40" stroke-width="1.4"/>
+        <path d="M20 8L30 13V20C30 26.5 25.9 31.6 20 33C14.1 31.6 10 26.5 10 20V13L20 8Z" stroke="#2F4A40" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M15.5 20.2L18.6 23.3L25 16.5" stroke="#9C7C3D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Datenschutz&nbsp;Dunkelhain
+    </a>
+    <nav>
+      <ul class="navlinks">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#haltung">Haltung</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Datenschutzberatung &middot; Tirol &amp; Österreich</div>
+        <h1>Datenschutz ist kein<br><em>Formular.</em> Er ist Haltung.</h1>
+        <p class="lede">Wir begleiten Unternehmen durch DSGVO-Pflichten, Verfahrensverzeichnisse und Folgenabschätzungen — verständlich erklärt, ohne Juristendeutsch, ohne Angstmacherei.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kontakt">Erstgespräch anfragen</a>
+          <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+        </div>
+      </div>
+      <div class="seal-figure">
+        <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Siegel Datenschutz Dunkelhain">
+          <g class="seal-ring">
+            <circle cx="170" cy="170" r="150" fill="none" stroke="#2F4A40" stroke-width="1"/>
+            <circle cx="170" cy="170" r="150" fill="none" stroke="#9C7C3D" stroke-width="1" stroke-dasharray="1 7" />
+          </g>
+          <circle cx="170" cy="170" r="118" fill="#EAE6DC" stroke="#2F4A40" stroke-width="1.2"/>
+          <path d="M170 88L220 108V150C220 190 199 216 170 226C141 216 120 190 120 150V108L170 88Z"
+                fill="none" stroke="#2F4A40" stroke-width="2"/>
+          <path d="M147 165L163 181L196 140" fill="none" stroke="#9C7C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="170" y="252" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#4B564F">DUNKELHAIN &middot; TIROL</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap trust-row">
+      <div class="trust-item"><span class="num">DSGVO</span> Art. 5–35 im Griff</div>
+      <div class="trust-item"><span class="num">04</span> Kernleistungen</div>
+      <div class="trust-item"><span class="num">100%</span> in Klartext erklärt</div>
+    </div>
+  </div>
+
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Leistungen</div>
+        <h2>So läuft eine Begleitung ab</h2>
+        <p>Von der ersten Bestandsaufnahme bis zur laufenden Betreuung — in dieser Reihenfolge, weil jeder Schritt auf dem vorigen aufbaut.</p>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <div class="step">01</div>
+          <h3>Bestandsaufnahme</h3>
+          <div class="service-desc">
+            <p>Wir sichten, welche personenbezogenen Daten Sie verarbeiten, wo sie liegen und wer Zugriff hat — Basis für alles Weitere.</p>
+          </div>
+        </div>
+        <div class="service">
+          <div class="step">02</div>
+          <h3>Verfahrensverzeichnis</h3>
+          <div class="service-desc">
+            <p>Wir erstellen und pflegen Ihr Verarbeitungsverzeichnis nach Art. 30 DSGVO — versioniert und prüfungssicher.</p>
+          </div>
+        </div>
+        <div class="service">
+          <div class="step">03</div>
+          <h3>Folgenabschätzung</h3>
+          <div class="service-desc">
+            <p>Für risikoreiche Verarbeitungen führen wir die Datenschutz-Folgenabschätzung (DSFA) durch und dokumentieren Maßnahmen.</p>
+          </div>
+        </div>
+        <div class="service">
+          <div class="step">04</div>
+          <h3>Laufende Betreuung</h3>
+          <div class="service-desc">
+            <p>Als externe Datenschutzbeauftragte stehen wir für Anfragen, Vorfälle und jährliche Überprüfungen zur Verfügung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement" id="haltung">
+    <div class="wrap">
+      <blockquote>
+        „Datenschutz, der nur aus Angst vor der Strafe befolgt wird, hält nicht lange. Er muss aus Verständnis kommen — dann trägt er sich von selbst.“
+        <cite>— Grundsatz unserer Beratung</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Kontakt</div>
+        <h2>Erstgespräch vereinbaren</h2>
+        <p>Schreiben Sie uns kurz, worum es geht — wir melden uns innerhalb von zwei Werktagen.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <dl>
+            <dt>Firma</dt><dd>Datenschutz Firma</dd>
+            <dt>Anschrift</dt><dd>Dunkelhain, Straßenecke 4<br>4444 Dunkelhain</dd>
+            <dt>Geschäftsführung</dt><dd>Max Mustermann</dd>
+            <dt>Telefon</dt><dd class="mono">+43 444 44 44 444</dd>
+            <dt>E-Mail</dt><dd><a href="mailto:DatenschutzFirma@Dunkelhain.com">DatenschutzFirma@Dunkelhain.com</a></dd>
+            <dt>Web</dt><dd class="mono">datenschutz.dunkelhain.com</dd>
+          </dl>
+        </div>
+
+        <form id="inquiry-form">
+          <input type="hidden" name="access_key" value="b3ea58b8-6c68-47d9-a21a-e5d4f599eead">
+          <input type="hidden" name="subject" value="Neue Anfrage — Datenschutz Dunkelhain">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div>
+            <label for="email">E-Mail</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div>
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="message" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" style="align-self: flex-start;">Anfrage senden</button>
+          <p id="form-status" role="status" style="margin: 4px 0 0; font-size: 0.9rem;"></p>
+        </form>
+
+        <script>
+          const form = document.getElementById('inquiry-form');
+          const status = document.getElementById('form-status');
+
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Wird gesendet …';
+            status.style.color = 'var(--ink-soft)';
+            status.textContent = '';
+
+            try {
+              const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(new FormData(form)))
+              });
+              const data = await res.json();
+
+              if (data.success) {
+                status.style.color = 'var(--seal)';
+                status.textContent = 'Danke — Ihre Anfrage wurde gesendet.';
+                form.reset();
+              } else {
+                status.style.color = '#a33';
+                status.textContent = 'Senden fehlgeschlagen: ' + (data.message || 'Unbekannter Fehler.');
+              }
+            } catch (err) {
+              status.style.color = '#a33';
+              status.textContent = 'Senden fehlgeschlagen — bitte Internetverbindung prüfen.';
+            } finally {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Anfrage senden';
+            }
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Datenschutz Firma, Dunkelhain</span>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

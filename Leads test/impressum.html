@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum — Datenschutz Dunkelhain</title>
+<meta name="description" content="Impressum der Datenschutz Firma Dunkelhain gemäß § 5 ECG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --paper: #F4F2ED;
+    --paper-deep: #EAE6DC;
+    --ink: #1E2521;
+    --ink-soft: #4B564F;
+    --seal: #2F4A40;
+    --seal-deep: #1D302A;
+    --gold: #9C7C3D;
+    --gold-soft: #C9AE78;
+    --line: rgba(30, 37, 33, 0.14);
+    --radius: 2px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  .mono{
+    font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(244, 242, 237, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .brand .mark{ width: 30px; height: 30px; flex-shrink: 0; }
+
+  .navlinks{
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navlinks a{
+    text-decoration: none;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .navlinks a:hover, .navlinks a:focus-visible{ color: var(--seal); }
+
+  .navlinks a.active{ color: var(--seal); }
+
+  .navlinks a::after{
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  .navlinks a:hover::after, .navlinks a.active::after{ transform: scaleX(1); }
+
+  @media (max-width: 720px){
+    .navlinks{ display:none; }
+  }
+
+  section{ padding: 96px 0; }
+
+  #impressum{ scroll-margin-top: 84px; }
+
+  .impressum-head{
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .impressum-head .mono{ color: var(--gold); font-size: 0.85rem; }
+
+  .imp-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 56px;
+  }
+
+  @media (max-width: 780px){
+    .imp-grid{ grid-template-columns: 1fr; }
+  }
+
+  .imp-block h3{
+    font-size: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--seal);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .imp-block p{ margin: 0 0 6px; color: var(--ink-soft); font-size: 0.96rem; }
+
+  .imp-block p strong{ color: var(--ink); font-weight: 500; }
+
+  .back-to-top{
+    display: inline-block;
+    margin-top: 48px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--seal);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 48px 0 40px;
+    background: var(--paper-deep);
+  }
+
+  .footer-row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .footer-links{
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links a{ text-decoration: none; color: var(--ink-soft); }
+  .footer-links a:hover{ color: var(--seal); }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18.5" stroke="#2F4A40" stroke-width="1.4"/>
+        <path d="M20 8L30 13V20C30 26.5 25.9 31.6 20 33C14.1 31.6 10 26.5 10 20V13L20 8Z" stroke="#2F4A40" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M15.5 20.2L18.6 23.3L25 16.5" stroke="#9C7C3D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Datenschutz&nbsp;Dunkelhain
+    </a>
+    <nav>
+      <ul class="navlinks">
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#haltung">Haltung</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="impressum.html" class="active">Impressum</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="impressum">
+    <div class="wrap">
+      <div class="impressum-head">
+        <h2>Impressum</h2>
+        <span class="mono">§ 5 ECG / § 25 MedienG</span>
+      </div>
+
+      <div class="imp-grid">
+        <div class="imp-block">
+          <h3>Diensteanbieter</h3>
+          <p><strong>Datenschutz Firma</strong></p>
+          <p>Dunkelhain, Straßenecke 4</p>
+          <p>4444 Dunkelhain, Österreich</p>
+        </div>
+
+        <div class="imp-block">
+          <h3>Vertretungsberechtigt</h3>
+          <p><strong>Max Mustermann</strong></p>
+          <p>Geschäftsführung</p>
+        </div>
+
+        <div class="imp-block">
+          <h3>Kontakt</h3>
+          <p>Telefon: <strong>+43 444 44 44 444</strong></p>
+          <p>E-Mail: <a href="mailto:DatenschutzFirma@Dunkelhain.com">DatenschutzFirma@Dunkelhain.com</a></p>
+          <p>Web: <span class="mono">datenschutz.dunkelhain.com</span></p>
+        </div>
+
+        <div class="imp-block">
+          <h3>Unternehmensgegenstand</h3>
+          <p>Cannot show cause DATENSCHUTZ</p>
+        </div>
+      </div>
+
+      <a class="back-to-top" href="index.html">↑ Zurück zur Startseite</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Datenschutz Firma, Dunkelhain</span>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
